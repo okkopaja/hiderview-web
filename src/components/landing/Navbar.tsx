@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import { ModeToggle } from "@/components/ModeToggle";
-import { openBlankPopup } from "@/components/landing/BlankPopup";
 import { SiTelegram, SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
 import { SOCIALS } from "@/config/socials";
 
@@ -55,9 +54,6 @@ export default function Navbar() {
                                 <SiWhatsapp className="w-4 h-4" />
                             </Link>
                         </div>
-                        <button onClick={openBlankPopup} className="hidden md:block text-sm font-medium text-slate-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors px-4 py-2 cursor-pointer">
-                            Sign in
-                        </button>
                         <a href="/api/download" className="cursor-pointer flex items-center gap-2 bg-primary hover:bg-[#A33100] text-white text-sm font-semibold px-6 py-2.5 rounded-md transition-all duration-300 hover:-translate-y-[2px] shadow-[0_12px_40px_rgba(255,100,30,0.25)] dark:shadow-sm">
                             <span>Get Started</span>
                         </a>

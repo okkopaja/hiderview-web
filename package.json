@@ -10,7 +10,6 @@
     "format": "biome format --write"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.38.0",
     "@icons-pack/react-simple-icons": "^13.11.1",
     "@tabler/icons-react": "^3.37.1",
     "framer-motion": "^12.34.2",
