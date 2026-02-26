@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-burnt-orange: #C53B00;
+
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, "Courier New", monospace;
+
+  --animate-scroll-left: scroll-left 40s linear infinite;
+  --animate-gradient-x: gradient-x 15s ease infinite;
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes gradient-x {
+
+    0%,
+    100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+}
+
+:root {
+  /* Light Mode Defaults */
+  --background: #FFFFFF;
+  --foreground: #0f0f0f;
+
+  --primary: #b83700;
+  --secondary: #F5F5F5;
+  --accent: #b83700;
+
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
+
+  --card: #FFFFFF;
+  --card-foreground: #0f0f0f;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #b83700;
+}
+
+.dark {
+  /* Dark Mode Overrides */
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+
+  --primary: var(--color-burnt-orange);
+  --secondary: #111111;
+  --accent: var(--color-burnt-orange);
+
+  --muted: #1C1C1C;
+  --muted-foreground: #9CA3AF;
+
+  --card: #0A0A0A;
+  --card-foreground: #FFFFFF;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: var(--color-burnt-orange);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+code,
+pre,
+.font-mono {
+  font-family: var(--font-dm-mono), ui-monospace, "Courier New", monospace;
+}
+
+/* Utilities */
+@utility bento-card {
+  background-color: var(--card);
+  /* Fallback or base */
+  @apply dark:bg-white/[0.04] bg-white/60;
+  /* Dynamic bg */
+
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(197, 59, 0, 0.15);
+  }
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
